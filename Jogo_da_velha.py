@@ -4,7 +4,6 @@ Data: 08/01/2025
 Versão: 1.0 (atualizado)
 '''
 
-
 import random, time
 
 jogador1_letra = ''
