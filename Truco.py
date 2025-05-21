@@ -1,6 +1,7 @@
 """Author: Lucas Gabriel Santos
 Date: 09/04/2025
-Version 1.1"""
+Version 1.1
+a"""
 
 import random
 
@@ -31,6 +32,9 @@ value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
 
+player_pontuation = 0
+bot_pontuation = 0
+
 def pick(quantity):
     cards = []
     for c in range(0, quantity):
@@ -39,6 +43,31 @@ def pick(quantity):
         pack.remove(card)
     return cards
 
-players_deck = pick(3)
-robots_deck = pick(3)
-print(players_deck, robots_deck)
+def card_value(card):
+    return value[immutable_pack.index(card)]
+
+def comparation(player, bot):
+    if card_value(player) > card_value(bot):
+        return "Player wins"
+    else:
+        return "Bot wins"
+
+"value[immutable_pack.index(player_play)]"
+
+while True:
+    players_deck = pick(3)
+    bots_deck = pick(3)
+    print(players_deck, bots_deck)
+    for c in range(0, 3):
+        player_play = random.choice(players_deck)
+        players_deck.remove(player_play)
+        bot_play = random.choice(bots_deck)
+        bots_deck.remove(bot_play)
+        print(player_play, bot_play)
+        print(comparation(player_play, bot_play))
+        if comparation(player_play, bot_play) == "Player wins":
+            player_pontuation += 1
+        else:
+            bot_pontuation += 1
+    break
+print(player_pontuation, bot_pontuation)
