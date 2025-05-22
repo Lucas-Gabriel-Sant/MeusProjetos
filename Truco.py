@@ -70,4 +70,5 @@ while True:
         else:
             bot_pontuation += 1
     break
-print(player_pontuation, bot_pontuation)
+print('=-='*30)
+print(f"Plyer pontuation: {player_pontuation}\n Bot pontuation:{bot_pontuation}")
