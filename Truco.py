@@ -57,9 +57,15 @@ def comparation(player, bot):
 while True:
     players_deck = pick(3)
     bots_deck = pick(3)
-    print(players_deck, bots_deck)
+    print(bots_deck)
+    print()
+    print('=-='*30)
     for c in range(0, 3):
-        player_play = random.choice(players_deck)
+        print()
+        for card_number, card in enumerate(players_deck):
+            print(f"{card_number}: {card}")
+        player_choice = int(input('Qual carta você escolhe? '))
+        player_play = players_deck[player_choice]
         players_deck.remove(player_play)
         bot_play = random.choice(bots_deck)
         bots_deck.remove(bot_play)
@@ -70,5 +76,6 @@ while True:
         else:
             bot_pontuation += 1
     break
+print()
 print('=-='*30)
-print(f"Plyer pontuation: {player_pontuation}\n Bot pontuation:{bot_pontuation}")
+print(f"Player pontuation: {player_pontuation}\n Bot pontuation:{bot_pontuation}")
