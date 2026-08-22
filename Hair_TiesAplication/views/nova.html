@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>Adicionar Nova Compra</title>
+{% end %}
+{% block body %}
+    {% if tiaras %}
+        <h3>Tiaras</h3>
+        <table class="table">
+            <tr>
+                <td>ID |</td>
+                <td>Nome</td>
+                <td>|Preco</td>
+            </tr>
+            {% for tiara in tiaras %}
+            <tr>
+                <td>{{ tiara[0] }}</td>
+                <td>{{ tiara[1] }}</td>
+                <td>{{ tiara[2] }}</td>
+            </tr>
+            {% end %}
+        </table>
+    {% else %}
+        <h3>Ainda não existem tiaras cadastradas</h3>
+    {% end %}
+    <h3>Adicionar Nova compra</h3>
+    <form action="/compra/nova" method="POST" autocomplete="off">
+        <div class="mb-3">
+            <label for="produto" class="form-label">Produto</label>
+            <!-- <input class="form-control" type="text" name="nome" id="nome" placeholder="Informe o nome do produto" required autofocus /> -->
+            <input list="nomes" id="produto" name="produto">
+            <datalist id="nomes">
+                {% for tiara in tiaras %}
+                    <option value="{{ tiara[1] }}"></option>
+                {% end %}
+            </datalist>
+        </div>
+        <!-- <div class="mb-3">
+            <label for="preco" class="form-label">Preço</label>
+            <input class="form-control" type="text" name="preco" id="preco" placeholder="Informe o preço do produto" required />
+        </div> -->
+        <div class="mb-3">
+            <label for="comprador" class="form-label">Comprador</label>
+            <input class="form-control" type="text" name="comprador" id="comprador" placeholder="Informe o seu nome" required />
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary mb-3">Comprar</button>
+        </div>
+    </form>
+{% end %}

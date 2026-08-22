@@ -60,7 +60,13 @@ while True:
     for c in range(0, 3):
         print(f'Deck do jogador: {players_deck}')
         player_choiceinput = int(input('Escolha sua carta(ID): '))
-        player_play = players_deck[player_choiceinput]
+        while True:
+            try:
+                player_play = players_deck[player_choiceinput]
+                break
+            except IndexError:
+                print('JOGADA INVÁLIDA')
+                player_choiceinput = int(input('Escolha sua carta(ID): '))
         players_deck.remove(player_play)
         bot_play = random.choice(bots_deck)
         bots_deck.remove(bot_play)
